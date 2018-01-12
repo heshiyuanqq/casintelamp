@@ -27,6 +27,7 @@ public class UsersController extends BaseController{
 				Result r = new Result();
 				r.setCode(200);
 				r.setData(userList);
+				System.out.println("1111111111111");
 				return r;
 		}
 
