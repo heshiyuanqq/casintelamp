@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cas.intelamp.dao.MessagesMapper" >
+  <resultMap id="BaseResultMap" type="com.cas.intelamp.model.Messages" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="typ" property="typ" jdbcType="TINYINT" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="street_id" property="streetId" jdbcType="INTEGER" />
+    <result column="pole_id" property="poleId" jdbcType="INTEGER" />
+    <result column="device_typ" property="deviceTyp" jdbcType="TINYINT" />
+    <result column="device_sn" property="deviceSn" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, typ, time, street_id, pole_id, device_typ, device_sn, content, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from messages
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from messages
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cas.intelamp.model.Messages" >
+    insert into messages (id, typ, time, 
+      street_id, pole_id, device_typ, 
+      device_sn, content, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{typ,jdbcType=TINYINT}, #{time,jdbcType=TIMESTAMP}, 
+      #{streetId,jdbcType=INTEGER}, #{poleId,jdbcType=INTEGER}, #{deviceTyp,jdbcType=TINYINT}, 
+      #{deviceSn,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cas.intelamp.model.Messages" >
+    insert into messages
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="typ != null" >
+        typ,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="streetId != null" >
+        street_id,
+      </if>
+      <if test="poleId != null" >
+        pole_id,
+      </if>
+      <if test="deviceTyp != null" >
+        device_typ,
+      </if>
+      <if test="deviceSn != null" >
+        device_sn,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typ != null" >
+        #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="streetId != null" >
+        #{streetId,jdbcType=INTEGER},
+      </if>
+      <if test="poleId != null" >
+        #{poleId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceTyp != null" >
+        #{deviceTyp,jdbcType=TINYINT},
+      </if>
+      <if test="deviceSn != null" >
+        #{deviceSn,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cas.intelamp.model.Messages" >
+    update messages
+    <set >
+      <if test="typ != null" >
+        typ = #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="streetId != null" >
+        street_id = #{streetId,jdbcType=INTEGER},
+      </if>
+      <if test="poleId != null" >
+        pole_id = #{poleId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceTyp != null" >
+        device_typ = #{deviceTyp,jdbcType=TINYINT},
+      </if>
+      <if test="deviceSn != null" >
+        device_sn = #{deviceSn,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cas.intelamp.model.Messages" >
+    update messages
+    set typ = #{typ,jdbcType=TINYINT},
+      time = #{time,jdbcType=TIMESTAMP},
+      street_id = #{streetId,jdbcType=INTEGER},
+      pole_id = #{poleId,jdbcType=INTEGER},
+      device_typ = #{deviceTyp,jdbcType=TINYINT},
+      device_sn = #{deviceSn,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

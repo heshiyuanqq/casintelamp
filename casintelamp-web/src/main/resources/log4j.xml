@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	  <appender name="CONSOLE-APPENDER" class="org.apache.log4j.ConsoleAppender">
+			     <param name="encoding" value="UTF-8" />
+			     <layout class="org.apache.log4j.PatternLayout">
+			       		<param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />
+			     </layout>  
+	  </appender>  
+	  
+	  <appender name="FILE-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">  
+			     <param name="File" value="/opt/3.0/20171114/logs/cas-intelamp.log" />
+			     <param name="Append" value="true" />
+			     <param name="encoding" value="UTF-8" />  
+			     <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+			     <layout class="org.apache.log4j.PatternLayout">
+			    			<param name="ConversionPattern" value="%d{ISO8601} 耗时：%r [日志来自：%-40.40c{3} 日志类型: %-5p 日志内容：%m]%n" />  
+			     </layout>  
+	   </appender> 
+	   
+		<!-- dao接口所在的包,而非.xml mapper文件 -->
+		<logger name="com.cas.intelamp.dao" additivity="true"> 
+		     	<level value="TRACE"></level>
+		</logger> 
+		
+	     <root> 
+			     <level value="INFO"></level>
+			     <appender-ref ref="FILE-APPENDER" />
+			     <appender-ref ref="CONSOLE-APPENDER"/>
+	     </root>
+</log4j:configuration>

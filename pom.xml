@@ -1,0 +1,329 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	  <modelVersion>4.0.0</modelVersion>
+	  <groupId>com.cas.intelamp</groupId>
+	  <artifactId>casintelamp-parent</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <packaging>pom</packaging>
+	  
+	<!-- 依赖版本号集中管理 -->
+	<properties>
+			<commons-lang3.version>3.5</commons-lang3.version>
+			<commons-io.version>2.5</commons-io.version>
+			<commons-net.version>3.3</commons-net.version>
+			<commons-beanutils.version>1.9.3</commons-beanutils.version>
+			<commons-collections.version>3.2.2</commons-collections.version>
+			<commons-lang.version>2.6</commons-lang.version>
+			<commons-logging.version>1.2</commons-logging.version>
+			<commons-cli.version>1.2</commons-cli.version>
+			<c3p0.version>0.9.1.2</c3p0.version>
+			<freemarker.version>2.3.23</freemarker.version>
+			<fastjson.version>1.2.24</fastjson.version>
+			<junit.version>4.12</junit.version>
+			<jackson.version>2.8.7</jackson.version>
+			<jstl.version>1.2</jstl.version>
+			<jsp-api.version>2.0</jsp-api.version>
+			<mybatis.version>3.4.2</mybatis.version>
+			<mybatis.spring.version>1.3.1</mybatis.spring.version>
+			<mysql.version>6.0.5</mysql.version>
+			<mapper.version>3.3.9</mapper.version>
+			<slf4j.version>1.7.24</slf4j.version>
+			<servlet-api.version>3.1.0</servlet-api.version>
+			<spring.version>4.3.4.RELEASE</spring.version>
+			<spring-rabbit.version>1.7.1.RELEASE</spring-rabbit.version>
+			<spring-data-redis.version>1.8.1.RELEASE</spring-data-redis.version>
+			<cage.version>1.0</cage.version>
+			<commons-httpclient.vesion>3.1</commons-httpclient.vesion>
+			<monitor.vesion>1.0</monitor.vesion>
+			<javax-mail.version>1.4.7</javax-mail.version>
+			<jedis.version>2.9.0</jedis.version>
+			<commons-fileupload.version>1.3.1</commons-fileupload.version>
+			<commons-codec.version>1.9</commons-codec.version>
+			<cglib.version>2.2.2</cglib.version>
+			<amqp-client.version>3.6.5</amqp-client.version>
+			<hibernate-validator.version>5.0.2.Final</hibernate-validator.version>
+			<spring-integration-mqtt.version>4.3.7.RELEASE</spring-integration-mqtt.version>
+			<org.eclipse.paho.client.mqttv3.version>1.0.2</org.eclipse.paho.client.mqttv3.version>
+	</properties>
+
+	<dependencyManagement>
+			<dependencies>
+				<!-- java-http请求客户端 -->
+				<dependency>
+					<groupId>commons-httpclient</groupId>
+					<artifactId>commons-httpclient</artifactId>
+					<version>${commons-httpclient.vesion}</version>
+				</dependency>
+				
+				<!-- 上传组件包-->
+				 <dependency>  
+		            <groupId>commons-fileupload</groupId>  
+		            <artifactId>commons-fileupload</artifactId>  
+		          	<version>${commons-fileupload.version}</version>
+		        </dependency>
+		        <dependency>  
+		            <groupId>commons-codec</groupId>  
+		            <artifactId>commons-codec</artifactId>  
+		           	<version>${commons-codec.version}</version>
+		        </dependency>    
+		        
+		        <!-- cglib -->
+				<dependency>
+				    <groupId>cglib</groupId>
+				    <artifactId>cglib</artifactId>
+				    <version>${cglib.version}</version>
+				</dependency>
+	
+				<!-- 单元测试 -->
+				<dependency>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+					<version>${junit.version}</version>
+					<scope>test</scope>
+				</dependency>
+	
+				<!-- Spring -->
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context-support</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-tx</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jdbc</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aspects</artifactId>
+					<version>${spring.version}</version>
+				</dependency>
+				
+				<!-- spring实现rabbitMQ -->
+				<dependency>
+					<groupId>org.springframework.amqp</groupId>
+					<artifactId>spring-amqp</artifactId>
+					<version>${spring-rabbit.version}</version>
+				</dependency>
+	
+				<!-- spring-redis -->
+				<dependency>
+					<groupId>org.springframework.data</groupId>
+					<artifactId>spring-data-redis</artifactId>
+					<version>${spring-data-redis.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>redis.clients</groupId>
+					<artifactId>jedis</artifactId>
+					<version>${jedis.version}</version>
+				</dependency>
+				
+				<!-- Mybatis -->
+				<dependency>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis</artifactId>
+					<version>${mybatis.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>org.mybatis</groupId>
+					<artifactId>mybatis-spring</artifactId>
+					<version>${mybatis.spring.version}</version>
+				</dependency>
+	
+				<!-- 通用Mapper -->
+				<dependency>
+					<groupId>com.github.abel533</groupId>
+					<artifactId>mapper</artifactId>
+					<version>${mapper.version}</version>
+				</dependency>
+				
+				<!-- 图形验证码 -->
+				<dependency>
+					<groupId>com.github.cage</groupId>
+					<artifactId>cage</artifactId>
+					<version>${cage.version}</version>
+				</dependency>
+	
+				<!-- MySql -->
+				<dependency>
+					<groupId>mysql</groupId>
+					<artifactId>mysql-connector-java</artifactId>
+					<version>${mysql.version}</version>
+				</dependency>
+	
+				<!-- 日志 -->
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+					<version>${slf4j.version}</version>
+				</dependency>
+	
+				<!-- Jackson Json处理工具包 -->
+				<dependency>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+					<version>${jackson.version}</version>
+				</dependency>
+	
+				<!-- fastjson json处理工具 -->
+				<dependency>
+					<groupId>com.alibaba</groupId>
+					<artifactId>fastjson</artifactId>
+					<version>${fastjson.version}</version>
+				</dependency>
+				
+				<!--阿里大于短信sdk -->
+				<dependency>
+					<groupId>km</groupId>
+					<artifactId>monitor</artifactId>
+					<version>${monitor.vesion}</version>
+				</dependency>
+				
+				<!-- 连接池 -->
+				<dependency>
+					<groupId>c3p0</groupId>
+					<artifactId>c3p0</artifactId>
+					<version>${c3p0.version}</version>
+				</dependency>
+	
+				<!-- JSP相关 -->
+				<dependency>
+					<groupId>jstl</groupId>
+					<artifactId>jstl</artifactId>
+					<version>${jstl.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+					<version>${servlet-api.version}</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jsp-api</artifactId>
+					<version>${jsp-api.version}</version>
+					<scope>provided</scope>
+				</dependency>
+	
+				<!-- 邮件发送 -->
+				<dependency>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+					<version>${javax-mail.version}</version>
+				</dependency>
+				
+				<!-- Apache工具组件 -->
+				<dependency>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+					<version>${commons-lang3.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+					<version>${commons-io.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-net</groupId>
+					<artifactId>commons-net</artifactId>
+					<version>${commons-net.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-beanutils</groupId>
+					<artifactId>commons-beanutils</artifactId>
+					<version>${commons-beanutils.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-collections</groupId>
+					<artifactId>commons-collections</artifactId>
+					<version>${commons-collections.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-lang</groupId>
+					<artifactId>commons-lang</artifactId>
+					<version>${commons-lang.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+					<version>${commons-logging.version}</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-cli</groupId>
+					<artifactId>commons-cli</artifactId>
+					<version>${commons-cli}</version>
+				</dependency>
+				
+				<!-- 静态化freemarker -->
+				<dependency>
+					<groupId>org.freemarker</groupId>
+					<artifactId>freemarker</artifactId>
+					<version>${freemarker.version}</version>
+				</dependency>
+				
+				<!-- paho -->
+				<dependency>
+			        <groupId>org.eclipse.paho</groupId>
+			        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			        <version>${org.eclipse.paho.client.mqttv3.version}</version>
+			  	</dependency>
+			  	<dependency>
+						<groupId>org.springframework.integration</groupId>
+						<artifactId>spring-integration-mqtt</artifactId>
+						<version>${spring-integration-mqtt.version}</version>
+			  	</dependency>
+			  	<dependency>  
+				        <groupId>org.hibernate</groupId>  
+				        <artifactId>hibernate-validator</artifactId>  
+				      	<version>${hibernate-validator.version}</version>
+		      	 </dependency>  
+		      	  <dependency>
+			            <groupId>com.rabbitmq</groupId>
+			            <artifactId>amqp-client</artifactId>
+			            <version>${amqp-client.version}</version>
+			 	</dependency>
+			</dependencies>
+		</dependencyManagement>
+	<modules>
+		<module>casintelamp-domain</module>
+		<module>casintelamp-commonutil</module>
+		<module>casintelamp-dao</module>
+		<module>casintelamp-service</module>
+		<module>casintelamp-web</module>
+	</modules>
+</project>
+  

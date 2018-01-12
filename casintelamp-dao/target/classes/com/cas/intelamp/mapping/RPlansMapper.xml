@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cas.intelamp.dao.RPlansMapper" >
+  <resultMap id="BaseResultMap" type="com.cas.intelamp.model.RPlans" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="play_begin" property="playBegin" jdbcType="TIME" />
+    <result column="play_end" property="playEnd" jdbcType="TIME" />
+    <result column="typ" property="typ" jdbcType="TINYINT" />
+    <result column="iscycle" property="iscycle" jdbcType="TINYINT" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, start_date, end_date, play_begin, play_end, typ, iscycle, notes, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from r_plans
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_plans
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cas.intelamp.model.RPlans" >
+    insert into r_plans (id, name, start_date, 
+      end_date, play_begin, play_end, 
+      typ, iscycle, notes, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{playBegin,jdbcType=TIME}, #{playEnd,jdbcType=TIME}, 
+      #{typ,jdbcType=TINYINT}, #{iscycle,jdbcType=TINYINT}, #{notes,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cas.intelamp.model.RPlans" >
+    insert into r_plans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="playBegin != null" >
+        play_begin,
+      </if>
+      <if test="playEnd != null" >
+        play_end,
+      </if>
+      <if test="typ != null" >
+        typ,
+      </if>
+      <if test="iscycle != null" >
+        iscycle,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="playBegin != null" >
+        #{playBegin,jdbcType=TIME},
+      </if>
+      <if test="playEnd != null" >
+        #{playEnd,jdbcType=TIME},
+      </if>
+      <if test="typ != null" >
+        #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="iscycle != null" >
+        #{iscycle,jdbcType=TINYINT},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cas.intelamp.model.RPlans" >
+    update r_plans
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="playBegin != null" >
+        play_begin = #{playBegin,jdbcType=TIME},
+      </if>
+      <if test="playEnd != null" >
+        play_end = #{playEnd,jdbcType=TIME},
+      </if>
+      <if test="typ != null" >
+        typ = #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="iscycle != null" >
+        iscycle = #{iscycle,jdbcType=TINYINT},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cas.intelamp.model.RPlans" >
+    update r_plans
+    set name = #{name,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      play_begin = #{playBegin,jdbcType=TIME},
+      play_end = #{playEnd,jdbcType=TIME},
+      typ = #{typ,jdbcType=TINYINT},
+      iscycle = #{iscycle,jdbcType=TINYINT},
+      notes = #{notes,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

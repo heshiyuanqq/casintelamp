@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cas.intelamp.dao.LogsMapper" >
+  <resultMap id="BaseResultMap" type="com.cas.intelamp.model.Logs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="typ" property="typ" jdbcType="TINYINT" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="useragent" property="useragent" jdbcType="VARCHAR" />
+    <result column="args" property="args" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, typ, time, url, ip, useragent, args
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from logs
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from logs
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cas.intelamp.model.Logs" >
+    insert into logs (id, user_id, typ, 
+      time, url, ip, useragent, 
+      args)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{typ,jdbcType=TINYINT}, 
+      #{time,jdbcType=TIMESTAMP}, #{url,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{useragent,jdbcType=VARCHAR}, 
+      #{args,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cas.intelamp.model.Logs" >
+    insert into logs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="typ != null" >
+        typ,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="useragent != null" >
+        useragent,
+      </if>
+      <if test="args != null" >
+        args,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typ != null" >
+        #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null" >
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="args != null" >
+        #{args,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cas.intelamp.model.Logs" >
+    update logs
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typ != null" >
+        typ = #{typ,jdbcType=TINYINT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null" >
+        useragent = #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="args != null" >
+        args = #{args,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cas.intelamp.model.Logs" >
+    update logs
+    set user_id = #{userId,jdbcType=INTEGER},
+      typ = #{typ,jdbcType=TINYINT},
+      time = #{time,jdbcType=TIMESTAMP},
+      url = #{url,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      useragent = #{useragent,jdbcType=VARCHAR},
+      args = #{args,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

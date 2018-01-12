@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration   
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+         <!-- 输出查询语句 -->
+	  	 <!--  <setting name="logImpl" value="STDOUT_LOGGING" /> --><!-- 输出到控制台,即System.out.print -->
+	     <setting name="logImpl" value="LOG4J"/><!-- 交给Log4j处理(log4j输出到哪实际就输出到哪) -->
+    </settings>
+</configuration>

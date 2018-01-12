@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cas.intelamp.dao.LGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.cas.intelamp.model.LGroup" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="time_on" property="timeOn" jdbcType="VARCHAR" />
+    <result column="time_off" property="timeOff" jdbcType="VARCHAR" />
+    <result column="notes" property="notes" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, time_on, time_off, notes
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from l_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from l_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cas.intelamp.model.LGroup" >
+    insert into l_group (id, name, time_on, 
+      time_off, notes)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{timeOn,jdbcType=VARCHAR}, 
+      #{timeOff,jdbcType=VARCHAR}, #{notes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cas.intelamp.model.LGroup" >
+    insert into l_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="timeOn != null" >
+        time_on,
+      </if>
+      <if test="timeOff != null" >
+        time_off,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOn != null" >
+        #{timeOn,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOff != null" >
+        #{timeOff,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cas.intelamp.model.LGroup" >
+    update l_group
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOn != null" >
+        time_on = #{timeOn,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOff != null" >
+        time_off = #{timeOff,jdbcType=VARCHAR},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cas.intelamp.model.LGroup" >
+    update l_group
+    set name = #{name,jdbcType=VARCHAR},
+      time_on = #{timeOn,jdbcType=VARCHAR},
+      time_off = #{timeOff,jdbcType=VARCHAR},
+      notes = #{notes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,252 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	  <modelVersion>4.0.0</modelVersion>
+	  <parent>
+	    <groupId>com.cas.intelamp</groupId>
+	    <artifactId>casintelamp-parent</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	  </parent>
+	  <artifactId>casintelamp-web</artifactId>
+	  <packaging>war</packaging>
+	  <name>casintelamp-web</name>
+	  <description>casintelamp-web</description>
+	  
+	  <dependencies>  
+		  	<dependency>
+		  			<groupId>com.cas.intelamp</groupId>
+		    		<artifactId>casintelamp-service</artifactId>
+		    		<version>0.0.1-SNAPSHOT</version>
+		  	</dependency>
+		  	<dependency>
+		  			<groupId>com.cas.intelamp</groupId>
+		    		<artifactId>casintelamp-domain</artifactId>
+		    		<version>0.0.1-SNAPSHOT</version>
+		  	</dependency>
+		  	<dependency>
+		  			<groupId>com.cas.intelamp</groupId>
+		    		<artifactId>casintelamp-commonutil</artifactId>
+		    		<version>0.0.1-SNAPSHOT</version>
+		  	</dependency>
+		  	
+		   <!-- 	spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+			</dependency>
+        
+	        <!-- 上传组件包 -->  
+	        <dependency>  
+	            <groupId>commons-fileupload</groupId>  
+	            <artifactId>commons-fileupload</artifactId>  
+	        </dependency>  
+	        <dependency>  
+	            <groupId>commons-codec</groupId>  
+	            <artifactId>commons-codec</artifactId>  
+	        </dependency>  
+        
+        	<!-- cglib -->
+			<dependency>
+			    <groupId>cglib</groupId>
+			    <artifactId>cglib</artifactId>
+			</dependency>
+        
+            <!-- java-http请求客户端 -->
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+			</dependency>
+
+			<!-- 单元测试 -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- SpringMVC -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+			</dependency>
+			
+			<!-- 图片验证码 -->
+			<dependency>
+				<groupId>com.github.cage</groupId>
+				<artifactId>cage</artifactId>
+			</dependency>
+			
+			<!-- 日志 -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+			</dependency>
+
+			<!-- Jackson Json处理工具包 -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+			</dependency>
+			
+			<!-- fastjson json处理工具 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+			</dependency>
+			
+			<!--阿里大于短信sdk -->
+			<dependency>
+				<groupId>km</groupId>
+				<artifactId>monitor</artifactId>
+			</dependency>
+
+			<!-- JSP相关 -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jsp-api</artifactId>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- 邮件发送 -->
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+			</dependency>
+			
+			<!-- Apache工具组件 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-net</groupId>
+				<artifactId>commons-net</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</dependency>
+			
+			<!-- 静态化freemarker -->
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+			</dependency>
+			 
+			<dependency>
+		        <groupId>org.eclipse.paho</groupId>
+		        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			</dependency>
+		    <dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-mqtt</artifactId>
+			</dependency>
+			
+		    <dependency>  
+		        <groupId>org.hibernate</groupId>  
+		        <artifactId>hibernate-validator</artifactId>  
+		    </dependency>  
+		</dependencies>   
+			
+	   	  <repositories>
+			    <repository>
+			        <id>Eclipse Paho Repo</id>
+			        <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+			    </repository>
+		  </repositories>
+    
+	    <build>
+			<resources>
+				<resource>
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>*.xml</include>
+						<include>**/*.ftl</include>
+						<include>*.ftl</include>
+						<include>**/*.properties</include>
+						<include>*.properties</include>
+					</includes>
+					<filtering>false</filtering>
+				</resource>
+				<resource>
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>*.xml</include>
+						<include>**/*.ftl</include>
+						<include>*.ftl</include>
+						<include>**/*.properties</include>
+						<include>*.properties</include>
+					</includes>
+					<filtering>false</filtering>
+				</resource>
+			</resources>
+			<plugins>
+				<!-- 资源文件拷贝插件 -->
+				
+				<!-- java编译插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.2</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+</project>
